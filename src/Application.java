@@ -45,9 +45,12 @@ public class Application {
         Input root = null;
 
         int counter = 0;
-        List<String> lines = new ArrayList<>();
-        for (int i = 0; i < text.length() / lineSize; i++) {
-            String line = text.substring(counter + 1, counter + LINE_SIZE);
+        for (int i = 0; i < text.length() / lineSize + 1; i++) {
+            int upperBound = counter + LINE_SIZE;
+            if (upperBound >= text.length()) {
+                upperBound = text.length() - 1;
+            }
+            String line = text.substring(counter + 1, upperBound);
             counter += lineSize;
             if (i == 0) {
                 cur = new Input(i, word, line);
