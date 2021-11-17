@@ -43,10 +43,17 @@ public class SubStrSearch implements AM {
             for (channel c: chans) {
                 wordOccurrences += c.readInt();
             }
+
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                return;
+            }
         }
 
 
-        System.out.println("[" + n.getId() + "] line search finished.");
+        System.out.println("[" + n.getId() + "] line search finished. Result: " + wordOccurrences);
         info.parent.write(wordOccurrences);
     }
 }
