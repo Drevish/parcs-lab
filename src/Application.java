@@ -13,6 +13,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 //jar cfv Application.jar .
+// sudo netstat -plten |grep java
 public class Application {
     private static int LINE_SIZE = 1000;
 
