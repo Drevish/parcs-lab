@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
 
 //jar cfv Application.jar .
 public class Application {
+    private static int LINE_SIZE = 1000;
+
     public static void main(String[] args) throws Exception {
         task curtask = new task();
         curtask.addJarFile("SubStrSearch.jar");
@@ -36,7 +38,7 @@ public class Application {
         String text = Files.readString(Path.of(filename));
         text = text.substring(text.indexOf("\n"));
         int wordSize = word.length();
-        int lineSize = (100 - wordSize);
+        int lineSize = (LINE_SIZE - wordSize);
 
         Input cur = null;
         Input root = null;
@@ -44,7 +46,7 @@ public class Application {
         int counter = 0;
         List<String> lines = new ArrayList<>();
         for (int i = 0; i < text.length() / lineSize; i++) {
-            String line = text.substring(counter + 1, counter + 100);
+            String line = text.substring(counter + 1, counter + LINE_SIZE);
             counter += lineSize;
             if (i == 0) {
                 cur = new Input(i, word, line);
