@@ -20,7 +20,6 @@ public class SubStrSearch implements AM {
         int wordOccurrences = 0;
         while (matcher.find()) {
             wordOccurrences++;
-            System.out.println("[" + n.getId() + "] found " + wordOccurrences + " occurrence.");
         }
         System.out.println("[" + n.getId() + "] line " + wordOccurrences + " occurrences found.");
 

@@ -12,6 +12,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//jar cfv Application.jar .
 public class Application {
     public static void main(String[] args) throws Exception {
         task curtask = new task();
@@ -25,7 +26,7 @@ public class Application {
         c.write(n);
 
         System.out.println("Waiting for result...");
-        System.out.println("Result: " + c.readLong());
+        System.out.println("Result: " + c.readInt());
         curtask.end();
     }
 
