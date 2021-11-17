@@ -1,19 +1,19 @@
 all: run
 
 clean:
-	rm -f out/Bluck.jar out/DFS.jar
+	rm -f out/Application.jar out/SubStrSearch.jar
 
-out/Bluck.jar: out/parcs.jar src/Bluck.java src/Node.java
-	@javac -cp out/parcs.jar src/Bluck.java src/Node.java
-	@jar cf out/Bluck.jar -C src Bluck.class -C src Node.class
-	@rm -f src/Bluck.class src/Node.class
+out/Application.jar: out/parcs.jar src/Application.java src/Node.java
+	@javac -cp out/parcs.jar src/Application.java src/Node.java
+	@jar cf out/Application.jar -C src Application.class -C src Node.class
+	@rm -f src/Application.class src/Node.class
 
-out/DFS.jar: out/parcs.jar src/DFS.java src/Node.java
-	@javac -cp out/parcs.jar src/DFS.java src/Node.java
-	@jar cf out/DFS.jar -C src DFS.class -C src Node.class
-	@rm -f src/DFS.class src/Node.class
+out/SubStrSearch.jar: out/parcs.jar src/SubStrSearch.java src/Node.java
+	@javac -cp out/parcs.jar src/SubStrSearch.java src/Node.java
+	@jar cf out/SubStrSearch.jar -C src SubStrSearch.class -C src Node.class
+	@rm -f src/SubStrSearch.class src/Node.class
 
-build: out/Bluck.jar out/DFS.jar
+build: out/Application.jar out/SubStrSearch.jar
 
-run: out/Bluck.jar out/DFS.jar
-	@cd out && java -cp 'parcs.jar:Bluck.jar' Bluck
+run: out/Application.jar out/SubStrSearch.jar
+	@cd out && java -cp 'parcs.jar:Application.jar' Application
