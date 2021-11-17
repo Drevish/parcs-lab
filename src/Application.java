@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 public class Application {
     public static void main(String[] args) throws Exception {
         task curtask = new task();
-        curtask.addJarFile("SubStrSearch.jar"); //TODO generate jar
+        curtask.addJarFile("SubStrSearch.jar");
         Input n = fromFile(curtask.findFile("inp"));
 
         AMInfo info = new AMInfo(curtask, null);

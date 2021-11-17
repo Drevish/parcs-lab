@@ -14,12 +14,13 @@ public class SubStrSearch implements AM {
         Input n = (Input)info.parent.readObject();
         System.out.println("[" + n.getId() + "] line search started.");
 
-
+        System.out.println("Current word: '" + n.getWord() + "', current line: '" + n.getLine());
         Pattern pattern = Pattern.compile(n.getWord(), Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(n.getLine());
         int wordOccurrences = 0;
         while (matcher.find()) {
             wordOccurrences++;
+            System.out.println("[" + n.getId() + "] found " + wordOccurrences + " occurrence.");
         }
         System.out.println("[" + n.getId() + "] line " + wordOccurrences + " occurrences found.");
 
@@ -27,7 +28,7 @@ public class SubStrSearch implements AM {
         if (n.getId() == 0) {
             List<point> points = new ArrayList<>();
             List<channel> chans = new ArrayList<>();
-            Input cur = n;
+            Input cur = n.getNext();
             while (true) {
                 point p = info.createPoint();
                 channel c = p.createChannel();
