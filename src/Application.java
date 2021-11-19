@@ -15,8 +15,6 @@ import java.util.regex.Pattern;
 //jar cfv Application.jar .
 // sudo netstat -plten |grep java
 public class Application {
-    private static int LINE_SIZE = 100;
-
     public static void main(String[] args) throws Exception {
         task curtask = new task();
         curtask.addJarFile("SubStrSearch.jar");
@@ -43,12 +41,14 @@ public class Application {
         String text = Files.readString(Path.of(filename));
         text = text.substring(text.indexOf("\n"));
         int wordSize = word.length();
+        int LINE_SIZE = text.length() / 50;
         int lineSize = (LINE_SIZE - wordSize);
 
         Input cur = null;
         Input root = null;
 
         System.out.println("Input text has " + text.length() + " symbols");
+        System.out.println("Line size: " + LINE_SIZE + " symbols");
         int counter = 0;
         for (int i = 0; i < text.length() / lineSize + 1; i++) {
             int upperBound = counter + LINE_SIZE;
