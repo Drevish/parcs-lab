@@ -15,13 +15,14 @@ import java.util.regex.Pattern;
 //jar cfv Application.jar .
 // sudo netstat -plten |grep java
 public class Application {
-    private static int LINE_SIZE = 1000;
+    private static int LINE_SIZE = 100;
 
     public static void main(String[] args) throws Exception {
         task curtask = new task();
         curtask.addJarFile("SubStrSearch.jar");
         Input n = fromFile(curtask.findFile("inp"));
 
+        long startTime = System.currentTimeMillis();
         AMInfo info = new AMInfo(curtask, null);
         point p = info.createPoint();
         channel c = p.createChannel();
@@ -30,6 +31,9 @@ public class Application {
 
         System.out.println("Waiting for result...");
         System.out.println("Result: " + c.readInt());
+
+        long stopTime = System.nanoTime();
+        System.out.println("Time spent: " + (stopTime - startTime) + "ns");
         curtask.end();
     }
 
@@ -44,6 +48,7 @@ public class Application {
         Input cur = null;
         Input root = null;
 
+        System.out.println("Input text has " + text.length() + " symbols");
         int counter = 0;
         for (int i = 0; i < text.length() / lineSize + 1; i++) {
             int upperBound = counter + LINE_SIZE;

@@ -14,7 +14,7 @@ public class SubStrSearch implements AM {
         Input n = (Input)info.parent.readObject();
         System.out.println("[" + n.getId() + "] line search started.");
 
-        System.out.println("Current word: '" + n.getWord() + "', current line: '" + n.getLine());
+//        System.out.println("Current word: '" + n.getWord() + "', current line: '" + n.getLine());
         Pattern pattern = Pattern.compile(n.getWord(), Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(n.getLine());
         int wordOccurrences = 0;
@@ -43,12 +43,6 @@ public class SubStrSearch implements AM {
                 wordOccurrences += c.readInt();
             }
 
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-                return;
-            }
         }
 
 
