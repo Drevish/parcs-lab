@@ -32,8 +32,8 @@ public class Application {
         System.out.println("Waiting for result...");
         System.out.println("Result: " + c.readInt());
 
-        long stopTime = System.nanoTime();
-        System.out.println("Time spent: " + (stopTime - startTime) + "ns");
+        long stopTime = System.currentTimeMillis();
+        System.out.println("Time spent: " + (stopTime - startTime) + "ms");
         curtask.end();
     }
 
